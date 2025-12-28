@@ -1,6 +1,15 @@
+import sys
+import os
+
+# --- TAMBAHAN PENTING ---
+# Menambahkan folder saat ini (backend) ke path Python
+# agar file db.py bisa ditemukan oleh Vercel
+sys.path.append(os.path.dirname(os.path.abspath(__file__)))
+# ------------------------
+
 from flask import Flask, jsonify, request
 from flask_cors import CORS
-from db import get_connection
+from db import get_connection  # Sekarang ini akan berhasil
 
 app = Flask(__name__)
 CORS(app)
@@ -68,7 +77,7 @@ def sales_monthly():
 
         params = []
         if year and year != 'all':
-            query += " WHERE d.Tahun = %s "  # Ganti ? dengan %s
+            query += " WHERE d.Tahun = %s "
             params.append(year)
 
         query += """
@@ -135,7 +144,7 @@ def sales_by_category():
         return jsonify({"error": str(e)}), 500
 
 # ========================================
-# ENDPOINT 4: TOP PRODUK (Fix LIMIT & Query)
+# ENDPOINT 4: TOP PRODUK
 # ========================================
 @app.route('/api/products/top', methods=['GET'])
 def top_products():
@@ -143,7 +152,6 @@ def top_products():
         conn = get_connection()
         cursor = conn.cursor()
         
-        # PERBAIKAN: Ganti TOP 10 dengan LIMIT 10 di akhir
         query = """
         SELECT 
             p.NamaProduk,
