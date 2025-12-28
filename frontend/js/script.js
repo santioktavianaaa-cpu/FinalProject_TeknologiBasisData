@@ -1,4 +1,4 @@
-fetch("/kpi")
+fetch("/kpi/")
   .then((res) => res.json())
   .then((data) => {
     document.getElementById("totalTransaksi").innerText = data.total_transaksi;

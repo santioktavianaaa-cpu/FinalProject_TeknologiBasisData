@@ -1,4 +1,4 @@
-const API_URL = "/api/sales/monthly";
+const API_URL = "/api/kpi";
 
 function renderChart(data) {
   const ctx = document.getElementById("salesChart").getContext("2d");

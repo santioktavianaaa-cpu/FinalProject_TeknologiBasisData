@@ -1,4 +1,4 @@
-const API_URL = "/api/products/top";
+const API_URL = "/api/kpi";
 let allData = []; // Simpan semua data untuk search
 
 function formatCurrency(value) {

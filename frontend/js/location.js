@@ -1,4 +1,4 @@
-const API_URL = "/api/sales/location";
+const API_URL = "/api/kpi";
 let allData = [];
 
 function formatCurrency(value) {
