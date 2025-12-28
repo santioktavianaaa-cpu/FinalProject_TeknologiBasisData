@@ -1,4 +1,4 @@
-const API_URL = "http://127.0.0.1:5000/api/sales/category";
+const API_URL = "/api/sales/category";
 let allData = []; // Simpan semua data untuk search
 
 function formatCurrency(value) {

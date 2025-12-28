@@ -1,4 +1,4 @@
-const API_URL = "http://127.0.0.1:5000/api/sales/monthly";
+const API_URL = "/api/sales/monthly";
 
 function renderChart(data) {
   const ctx = document.getElementById("salesChart").getContext("2d");

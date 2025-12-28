@@ -1,22 +1,22 @@
-const API_URL = 'http://127.0.0.1:5000/api/kpi';
+const API_URL = "/api/kpi";
 
 function formatCurrency(value) {
-    return new Intl.NumberFormat('id-ID', {
-        style: 'currency',
-        currency: 'IDR',
-        minimumFractionDigits: 0,
-        maximumFractionDigits: 0
-    }).format(value);
+  return new Intl.NumberFormat("id-ID", {
+    style: "currency",
+    currency: "IDR",
+    minimumFractionDigits: 0,
+    maximumFractionDigits: 0,
+  }).format(value);
 }
 
 function formatNumber(value) {
-    return new Intl.NumberFormat('id-ID').format(value);
+  return new Intl.NumberFormat("id-ID").format(value);
 }
 
 function renderKPI(data) {
-    const container = document.getElementById('kpiContainer');
-    
-    container.innerHTML = `
+  const container = document.getElementById("kpiContainer");
+
+  container.innerHTML = `
         <div class="kpi-card">
             <h3>Total Transaksi</h3>
             <div class="value">${formatNumber(data.totalTransaksi)}</div>
@@ -50,25 +50,24 @@ function renderKPI(data) {
 }
 
 async function loadKPI() {
-    try {
-        const response = await fetch(API_URL);
-        
-        if (!response.ok) {
-            throw new Error(`HTTP error! status: ${response.status}`);
-        }
-        
-        const data = await response.json();
-        renderKPI(data);
-        
-    } catch (error) {
-        console.error('Error:', error);
-        document.getElementById('kpiContainer').innerHTML = `
+  try {
+    const response = await fetch(API_URL);
+
+    if (!response.ok) {
+      throw new Error(`HTTP error! status: ${response.status}`);
+    }
+
+    const data = await response.json();
+    renderKPI(data);
+  } catch (error) {
+    console.error("Error:", error);
+    document.getElementById("kpiContainer").innerHTML = `
             <div class="error">
                 ❌ Gagal memuat data KPI<br>
                 <small>${error.message}</small>
             </div>
         `;
-    }
+  }
 }
 
-document.addEventListener('DOMContentLoaded', loadKPI);
+document.addEventListener("DOMContentLoaded", loadKPI);
