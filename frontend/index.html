@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard KPI Penjualan - Data Warehouse</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <!-- HEADER -->
+        <div class="header">
+            <h1>📊 Dashboard KPI Penjualan</h1>
+            <p>Analisis performa penjualan berbasis Data Warehouse</p>
+            <span class="subtitle">Data Source: FactPenjualan & DimTanggal</span>
+        </div>
+
+        <!-- MENU NAVIGASI -->
+        <div class="nav-menu">
+            <a href="index.html" class="nav-item active">🏠 Dashboard</a>
+            <a href="sales_trend.html" class="nav-item">📈 Tren Penjualan</a>
+            <a href="products.html" class="nav-item">📦 Produk</a>
+            <a href="location.html" class="nav-item">📍 Lokasi</a>
+            <a href="employee.html" class="nav-item">👥 Pegawai</a>
+            <a href="category.html" class="nav-item">🏷️ Kategori</a>
+        </div>
+
+        <!-- KPI CARDS -->
+        <div class="kpi-grid" id="kpiContainer">
+            <div class="loading">Memuat data KPI...</div>
+        </div>
+
+        <!-- FOOTER -->
+        <div class="footer">
+            <p>🎓 Tugas Data Warehouse - Teknologi Basis Data<br>
+            <span>Data: OLTP_Transaksi (25 transaksi) → ETL → DW_Penjualan_Gudang</span></p>
+        </div>
+    </div>
+
+    <script src="js/kpi.js"></script>
+</body>
+</html>
