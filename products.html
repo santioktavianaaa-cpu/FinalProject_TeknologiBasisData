@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Top 10 Produk Terlaris - Data Warehouse</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <!-- HEADER -->
+        <div class="header">
+            <h1>📦 Top 10 Produk Terlaris</h1>
+            <p>Analisis produk berdasarkan total penjualan dan laba</p>
+            <span class="subtitle">FactPenjualan JOIN DimProduk</span>
+        </div>
+
+        <!-- MENU NAVIGASI -->
+        <div class="nav-menu">
+            <a href="index.html" class="nav-item">🏠 Dashboard</a>
+            <a href="sales_trend.html" class="nav-item">📈 Tren Penjualan</a>
+            <a href="products.html" class="nav-item active">📦 Produk</a>
+            <a href="location.html" class="nav-item">📍 Lokasi</a>
+            <a href="employee.html" class="nav-item">👥 Pegawai</a>
+            <a href="category.html" class="nav-item">🏷️ Kategori</a>
+        </div>
+
+        <!-- SEARCH BOX -->
+        <div class="search-box">
+            <input type="text" id="searchInput" placeholder="🔍 Cari nama produk..." onkeyup="searchTable()">
+            <div class="search-result-info" id="searchInfo"></div>
+        </div>
+
+        <!-- TABEL PRODUK -->
+        <div class="table-section">
+            <div class="table-container" id="productTable">
+                <div class="loading">Memuat data produk...</div>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/products.js"></script>
+</body>
+</html>
