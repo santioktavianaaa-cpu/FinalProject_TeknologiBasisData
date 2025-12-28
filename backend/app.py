@@ -66,7 +66,7 @@ def get_kpi():
 def sales_monthly():
     """
     Mengambil tren penjualan per bulan
-    Mendukung filter tahun (?year=2024)
+    Mendukung filter tahun (%s year=2024)
     """
     try:
         year = request.args.get('year')
@@ -88,7 +88,7 @@ def sales_monthly():
         params = []
 
         if year and year != 'all':
-            query += " WHERE d.Tahun = ? "
+            query += " WHERE d.Tahun = %s "
             params.append(year)
 
         query += """
@@ -179,7 +179,7 @@ def top_products():
         cursor = conn.cursor()
         
         query = """
-        SELECT TOP 10
+        SELECT
             p.NamaProduk,
             SUM(f.Quantity) AS TotalTerjual,
             SUM(f.JumlahNetto) AS TotalPendapatan,
@@ -188,6 +188,7 @@ def top_products():
         JOIN DimProduk p ON f.ProdukKey = p.ProdukKey
         GROUP BY p.NamaProduk
         ORDER BY SUM(f.JumlahNetto) DESC
+        LIMIT 10
         """
         
         cursor.execute(query)
